@@ -1,18 +1,18 @@
 ﻿CREATE TABLE [dbo].[Highlights]
 (
-	[Id] int identity(1,1) primary key,
-[Type] nvarchar(100),
-[Heading] nvarchar(200),
-[Description] nvarchar(max),
-[ButtonLabel] nvarchar(100),
-[IconName] varchar(100),
-[CreatedAt] datetime,
-[CreatedBy] int,
-[UpdatedAt] datetime,
-[UpdatedBy] int,
-[DeletedAt] datetime,
-[IsDeleted] bit,
-foreign key (CreatedBy) references Users(Id),
-foreign key (UpdatedBy) references Users(Id)
+	[Id] INT identity(1,1) PRIMARY KEY NOT NULL,
+[Type] NVARCHAR(100) NULL,
+[Heading] NVARCHAR(200) NULL,
+[Description] NVARCHAR(max) NULL,
+[ButtonLabel] NVARCHAR(100) NULL,
+[IconName] varchar(100) NULL,
+[CreatedAt] DATETIME NULL,
+[CreatedBy] INT NULL,
+[UpdatedAt] DATETIME NULL,
+[UpdatedBy] INT NULL,
+[DeletedAt] DATETIME NULL,
+[IsDeleted] BIT NULL,
+CONSTRAINT [FK_Highlights_CreatedBy] FOREIGN KEY([CreatedBy]) REFERENCES [Users]([Id]),
+CONSTRAINT [FK_Highlights_UpdatedBy] FOREIGN KEY([UpdatedBy]) REFERENCES [Users]([Id]),
 );
 Go
